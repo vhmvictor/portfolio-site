@@ -34,9 +34,9 @@ function App() {
       <section className="home" style={{justifyContent: 'center'}} id="home">
         <div className="max-width">
           <div className="home-content">
-            <div className="text-1">Olá, meu nome é</div>
-            <div className="text-2">Victor Hugo Marques</div>
-            <div className="text-3">e sou um Desenvolvedor FullStack</div>
+            <div className="text-1">Olá, sou</div>
+            <div className="text-2">Victor Hugo</div>
+            <div className="text-3">Desenvolvedor FullStack</div>
           </div>
           <div style={{display: 'flex', justifyContent: 'center'}}> 
             {/* Github */}
@@ -63,7 +63,7 @@ function App() {
             </div>
             <div className="column right">
               <div className="text">Desenvolvedor/Estudante/Atleta nas horas vagas</div>
-              <p>Estudante de Engenharia de Computação, me especializando em todo ecossistema da linguagem de programação JavaScript, buscando mais conhecimento na área e trabalhando para me tornar um excelente Full Stack Developer. Fascinado por tecnoligias e tudo que envolve o meio. Atualmente aprimorando meus conhecimentos nas tecnologias: Node.js / Python, React.js e React Native </p>
+              <p>Estudante de Engenharia de Computação, me especializando em todo ecossistema da linguagem de programação JavaScript, buscando mais conhecimento na área e trabalhando para me tornar referência como Full Stack Developer. Fascinado por tecnologias e tudo que envolve o meio. Atualmente aprimorando meus conhecimentos nas tecnologias: Node.js / Python, React.js e React Native </p>
               <a href="#">Download CV</a>
             </div>
           </div>
