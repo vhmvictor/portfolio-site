@@ -50,7 +50,7 @@ function App() {
           </div>
         </div>
         <div className="fullstack-img">
-          <a href="http://google.com"><img width={500} src="https://www.hostinger.com.br/tutoriais/wp-content/uploads/sites/12/2018/05/20-sites-para-aprender-como-programar-de-gra%C3%A7a-1280x720.png" alt=""/></a>
+          <img width={500} src="https://www.hostinger.com.br/tutoriais/wp-content/uploads/sites/12/2018/05/20-sites-para-aprender-como-programar-de-gra%C3%A7a-1280x720.png" alt=""/>
         </div>
       </section>
       {/* sobre */}
@@ -64,7 +64,7 @@ function App() {
             <div className="column right">
               <div className="text">Desenvolvedor/Estudante/Atleta nas horas vagas</div>
               <p>Estudante de Engenharia de Computação, me especializando em todo ecossistema da linguagem de programação JavaScript, buscando mais conhecimento na área e trabalhando para me tornar referência como Full Stack Developer. Fascinado por tecnologias e tudo que envolve o meio. Atualmente aprimorando meus conhecimentos nas tecnologias: Node.js / Python, React.js e React Native </p>
-              <a href="#">Download CV</a>
+              <a href="https://drive.google.com/file/d/1qZ2BLL_QtLqWVy68YWvlELKsPw-Ffeam/view?usp=sharing" target="_blank">Download CV</a>
             </div>
           </div>
         </div>
