@@ -216,13 +216,13 @@ function App() {
                 <div className="row">
                 <i style={{fontSize: '30px', color: 'crimson'}}> <FaEnvelope /></i>
                   <div className="info" style={{justifyItems: 'center'}}>
-                    <div className="head">victor.hugomarques@hotmial.com</div>
+                    <div className="head">victor.hugomarques@hotmail.com</div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="column right">
-              <div className="text">Me envie um e-mail!</div>
+              <div className="text">Me envie um e-mail! (em desenvolvimento...)</div>
               <form action="#">
                 <div className="fields">
                   <div className="field name">
