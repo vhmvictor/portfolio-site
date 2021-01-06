@@ -9,6 +9,7 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import Axios from 'axios';
+import swal from 'sweetalert';
 import { useState } from 'react';
 
 function App() {
@@ -26,6 +27,12 @@ function App() {
 
   function submitSendEmail(e){
     e.preventDefault();
+    swal({
+      title: "E-mail enviado!",
+      text: "Em breve entrarei em contato :D",
+      icon: "success",
+      button: "Fechar",
+    });
     Axios.post(url, data, {headers: {"Access-Control-Allow-Origin": "*"}})
     .then(res => {
       console.log(res.data);
