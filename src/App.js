@@ -246,7 +246,7 @@ function App() {
               </div>
             </div>
             <div className="column right">
-              <div className="text">Me envie um e-mail! (em desenvolvimento...)</div>
+              <div className="text">Me envie um e-mail!</div>
               <form action="#" onSubmit={(e)=>submitSendEmail(e)}>
                 <div className="fields">
                   <div className="field name">
