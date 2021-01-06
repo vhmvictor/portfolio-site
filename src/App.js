@@ -26,7 +26,7 @@ function App() {
 
   function submitSendEmail(e){
     e.preventDefault();
-    Axios.post(url, data)
+    Axios.post(url, data, {headers: {"Access-Control-Allow-Origin": "*"}})
     .then(res => {
       console.log(res.data);
     })
