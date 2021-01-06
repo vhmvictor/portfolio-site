@@ -8,11 +8,35 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import Axios from 'axios';
+import { useState } from 'react';
 
 function App() {
 
   let workIconStyles = { background: "#06D6A0" };
   let schoolIconStyles = { background: "#f9c74f" };
+
+  const url = "https://api-python-portifolio.herokuapp.com/contato";
+
+  const [data, setData] = useState({
+    email: "",
+    assunto: "",
+    mensagem: ""
+  });
+
+  function submitSendEmail(e){
+    e.preventDefault();
+    Axios.post(url, data)
+    .then(res => {
+      console.log(res.data);
+    })
+  };
+
+  function handleGetValue(e){
+    const newdata = {...data};
+    newdata[e.target.id] = e.target.value;
+    setData(newdata);
+  };
 
   return (
     <div>
@@ -223,23 +247,23 @@ function App() {
             </div>
             <div className="column right">
               <div className="text">Me envie um e-mail! (em desenvolvimento...)</div>
-              <form action="#">
+              <form action="#" onSubmit={(e)=>submitSendEmail(e)}>
                 <div className="fields">
                   <div className="field name">
                     <input type="text" placeholder="Nome" required />
                   </div>
                   <div className="field email">
-                    <input type="email" placeholder="Email" required />
+                    <input onChange={(e)=>handleGetValue(e)} value={data.email} type="email" id="email" placeholder="Email" required />
                   </div>
                 </div>
                 <div className="field">
-                  <input type="text" placeholder="Assunto" required />
+                  <input onChange={(e)=>handleGetValue(e)} value={data.assunto} type="text" id="assunto" placeholder="Assunto" required />
                 </div>
                 <div className="field textarea">
-                  <textarea cols={30} rows={10} placeholder="Mensagem..." required defaultValue={""} />
+                  <textarea onChange={(e)=>handleGetValue(e)} value={data.mensagem} cols={30} rows={10} id="mensagem" placeholder="Mensagem..." required defaultValue={""} />
                 </div>
                 <div className="button">
-                  <button type="submit">Enviar</button>
+                  <button type="submit" id="btn-submit">Enviar</button>
                 </div>
               </form>
             </div>
