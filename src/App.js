@@ -37,6 +37,7 @@ function App() {
     .then(res => {
       console.log(res.data);
     })
+    setData('');
   };
 
   function handleGetValue(e){
