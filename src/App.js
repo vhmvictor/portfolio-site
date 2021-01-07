@@ -20,12 +20,13 @@ function App() {
   const url = "https://api-python-portifolio.herokuapp.com/contato";
 
   const [data, setData] = useState({
+    nome: "",
     email: "",
     assunto: "",
     mensagem: ""
   });
 
-  function submitSendEmail(e){
+  function submitSendEmail(e) {
     e.preventDefault();
     swal({
       title: "E-mail enviado!",
@@ -33,15 +34,20 @@ function App() {
       icon: "success",
       button: "Fechar",
     });
-    Axios.post(url, data, {headers: {"Access-Control-Allow-Origin": "*"}})
-    .then(res => {
-      console.log(res.data);
-    })
-    setData('');
+    Axios.post(url, data, { headers: { "Access-Control-Allow-Origin": "*" } })
+      .then(res => {
+        console.log(res.data);
+      })
+    setData({
+      nome: "",
+      email: "",
+      assunto: "",
+      mensagem: ""
+    });
   };
 
-  function handleGetValue(e){
-    const newdata = {...data};
+  function handleGetValue(e) {
+    const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
     setData(newdata);
   };
@@ -63,26 +69,26 @@ function App() {
         </div>
       </nav>
       {/* principal */}
-      <section className="home" style={{justifyContent: 'center'}} id="home">
+      <section className="home" style={{ justifyContent: 'center' }} id="home">
         <div className="max-width">
           <div className="home-content">
             <div className="text-1">Olá, sou</div>
             <div className="text-2">Victor Hugo</div>
             <div className="text-3">Desenvolvedor FullStack</div>
           </div>
-          <div style={{display: 'flex', justifyContent: 'center'}}> 
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
             {/* Github */}
-            <div style={{padding: '20px'}}>
-              <a style={{fontSize: '50px', color: 'white'}} href="https://github.com/vhmvictor" target="_blank"><FaGithub /></a>
+            <div style={{ padding: '20px' }}>
+              <a style={{ fontSize: '50px', color: 'white' }} href="https://github.com/vhmvictor" target="_blank"><FaGithub /></a>
             </div>
-            {/* LinkedIn */} 
-            <div style={{padding: '20px'}}>
-              <a style={{fontSize: '50px', color: 'white'}} href="https://www.linkedin.com/in/vhmvictor/" target="_blank"><FaLinkedin /></a>
+            {/* LinkedIn */}
+            <div style={{ padding: '20px' }}>
+              <a style={{ fontSize: '50px', color: 'white' }} href="https://www.linkedin.com/in/vhmvictor/" target="_blank"><FaLinkedin /></a>
             </div>
           </div>
         </div>
         <div className="fullstack-img">
-          <img width={500} src="https://www.hostinger.com.br/tutoriais/wp-content/uploads/sites/12/2018/05/20-sites-para-aprender-como-programar-de-gra%C3%A7a-1280x720.png" alt=""/>
+          <img width={500} src="https://www.hostinger.com.br/tutoriais/wp-content/uploads/sites/12/2018/05/20-sites-para-aprender-como-programar-de-gra%C3%A7a-1280x720.png" alt="" />
         </div>
       </section>
       {/* sobre */}
@@ -121,19 +127,18 @@ function App() {
                     dateClassName="date"
                     iconStyle={isWorkIcon ? workIconStyles : schoolIconStyles}
                     icon={isWorkIcon ? <WorkIcon /> : <SchoolIcon />}
-                  > 
-                    <h3 style={{color:'black'}} className="vertical-timeline-element-title">
+                  >
+                    <h3 style={{ color: 'black' }} className="vertical-timeline-element-title">
                       {element.title}
                     </h3>
-                    <h5 style={{color:'black'}} className="vertical-timeline-element-subtitle">
+                    <h5 style={{ color: 'black' }} className="vertical-timeline-element-subtitle">
                       {element.location}
                     </h5>
-                    <p style={{color:'black'}} id="description">{element.description}</p>
+                    <p style={{ color: 'black' }} id="description">{element.description}</p>
                     {showButton && (
                       <a
-                        className={`button ${
-                          isWorkIcon ? "workButton" : "schoolButton"
-                        }`}
+                        className={`button ${isWorkIcon ? "workButton" : "schoolButton"
+                          }`}
                         href="/"
                       >
                         {element.buttonText}
@@ -240,14 +245,14 @@ function App() {
               <p>Você tem alguma ideia que gostaria de colocar em prática ? Entre em contato por e-mail e vamos discutir melhor!</p>
               <div className="icons">
                 <div className="row">
-                <i style={{fontSize: '30px', color: 'crimson'}}> <FaUserAlt /></i>
+                  <i style={{ fontSize: '30px', color: 'crimson' }}> <FaUserAlt /></i>
                   <div className="info">
                     <div className="head">Victor Hugo Marques</div>
                   </div>
                 </div>
                 <div className="row">
-                <i style={{fontSize: '30px', color: 'crimson'}}> <FaEnvelope /></i>
-                  <div className="info" style={{justifyItems: 'center'}}>
+                  <i style={{ fontSize: '30px', color: 'crimson' }}> <FaEnvelope /></i>
+                  <div className="info" style={{ justifyItems: 'center' }}>
                     <div className="head">victor.hugomarques@hotmail.com</div>
                   </div>
                 </div>
@@ -255,20 +260,20 @@ function App() {
             </div>
             <div className="column right">
               <div className="text">Me envie um e-mail!</div>
-              <form action="#" onSubmit={(e)=>submitSendEmail(e)}>
+              <form action="#" onSubmit={(e) => submitSendEmail(e)}>
                 <div className="fields">
                   <div className="field name">
-                    <input type="text" placeholder="Nome" required />
+                    <input input onChange={(e) => handleGetValue(e)} value={data.nome} type="text" id="nome" placeholder="Nome" required />
                   </div>
                   <div className="field email">
-                    <input onChange={(e)=>handleGetValue(e)} value={data.email} type="email" id="email" placeholder="Email" required />
+                    <input onChange={(e) => handleGetValue(e)} value={data.email} type="email" id="email" placeholder="Email" required />
                   </div>
                 </div>
                 <div className="field">
-                  <input onChange={(e)=>handleGetValue(e)} value={data.assunto} type="text" id="assunto" placeholder="Assunto" required />
+                  <input onChange={(e) => handleGetValue(e)} value={data.assunto} type="text" id="assunto" placeholder="Assunto" required />
                 </div>
                 <div className="field textarea">
-                  <textarea onChange={(e)=>handleGetValue(e)} value={data.mensagem} cols={30} rows={10} id="mensagem" placeholder="Mensagem..." required defaultValue={""} />
+                  <textarea onChange={(e) => handleGetValue(e)} value={data.mensagem} cols={30} rows={10} id="mensagem" placeholder="Mensagem..." required defaultValue={""} />
                 </div>
                 <div className="button">
                   <button type="submit" id="btn-submit">Enviar</button>
@@ -280,7 +285,7 @@ function App() {
       </section>
       {/* fim */}
       <footer>
-        <span>Created By <span style={{color: 'crimson'}}> Victor Hugo Marques </span> | 2020 All rights reserved.</span>
+        <span>Created By <span style={{ color: 'crimson' }}> Victor Hugo Marques </span> | 2020 All rights reserved.</span>
       </footer>
     </div>
   );
