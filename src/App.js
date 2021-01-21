@@ -56,7 +56,7 @@ function App() {
     <div>
       <nav className="navbar">
         <div className="max-width">
-          <div className="logo"><a href="#"> Meu <span>Portifólio</span></a></div>
+          <div className="logo"><a href="#"> Meu <span>Portfólio</span></a></div>
           <ul className="menu">
             <li><a href="#about" className="menu-btn">Sobre</a></li>
             <li><a href="#services" className="menu-btn">Experiências Profissionais / Especializações</a></li>
